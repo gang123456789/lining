@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<link rel="stylesheet" type="text/css" href="css/css.css.css">
+</head>
+<body>
+	<header>
+		
+	  <div class="cenright">
+	     
+	    <ul>
+	         
+			<li class="tu"><img src="images/a11.png"></li>
+				
+			<li><a href="index.html">分类</a></li>
+			<li><a href="basketball.html">男子</a></li>
+			<li><a href="sport.html">女子</a></li>
+			<li><a href="xie.html">男童</a></li>
+			<li><a href="shopping.html">女童</a></li>
+			<li><a href="#">系类</a></li>
+			<li><a href="#">韦德</a></li>
+			<li><a href="#">新品</a></li>
+			<li><a href="#">更多品牌</a></li>
+			</ul>
+		
+	  </div>
+
+	  <div class="top">
+	  
+	  	<div>
+	  	<img src="images/t1.jpg">
+	  		 </div>
+	  	<div><input placeholder="时装周"></div>
+    </div>	
+   </header>
+
+
+   <main>
+	<div class="center" id="app">
+		<div class="main-title">
+			<span><a href="#">特卖商品</a></span><i></i>
+			<span><a href="#">李宁特卖</a></span>
+		</div>
+		<div class="main-ps">
+			<span>配送至 </span>
+			<span>哈尔滨市</span>
+			<span></span>
+			<span>请在倒计时结束前提交订单，下单后你另有 30 分钟的支付时间。</span>
+		</div>
+		<div class="main-jx">
+			<div class="main-jx-title">
+				<dl>
+					<dt>精选特卖</dt>
+					<dd>单价</dd>
+					<dd>数量</dd>
+					<dd>小计</dd>
+					<dd>操作</dd>
+				</dl>
+			</div>
+			<ul class="main-jx-sp" v-for="(product, index) in productList" :key="index">
+				<li class="main-sp clearfix">
+					<div class="img"><a href="#"><img :src="product.pic"></a></div>
+					<div class="main-sp-infor"><!-- 商品 -->
+						<span>{{product.shop}}</span><i></i>
+						<span><a href="#">{{product.res}}</a></span>
+						<p>尺码:{{product.size}}</p>
+					</div>
+					<div class="main-sp-price">
+						<p>¥{{product.dPrice}}</p>
+						<p>¥{{product.dePrice}}</p><!-- 价格 -->
+					</div>
+					<div class="main-sp-sl">
+						<div class="main-sp-num">
+							<span class="main-sp-minus" id="minus" @click.stop="minus(index)">-</span>
+							<input type="text" :value="product.num" id="input"/>
+							<span class="main-sp-plus" id="plus" @click.stop="add(index)">+</span>
+						</div><!-- 数量 -->
+					</div>
+					<div class="main-sp-yh"><!-- 小计 -->
+						<p>¥ {{product.rPrice}}</p>
+						<p>已优惠 ¥{{product.sPrice}}</p>
+					</div>
+					<div class="main-sp-cz" @click.stop="del(index)">删除</div>
+				</li>
+			</ul>
+			<div class="main-sp-yf">
+				<span>运费</span>
+				<span>李宁自营: 自营商品已免运费</span>
+			</div>
+		</div>
+		<div class="main-js"><!-- 结算 -->
+			<div class="main-js-up clearfix">
+				<div class="main-js-left fl">
+					<div class="main-js-yh">
+						<span>已成功使用<i class="pink">1</i>张优惠券</span>
+						<span>-<i class="pink">¥30</i></span>
+						<span><a href="#">取消使用</a></span>
+					</div>
+					<div class="main-js-kl pink">使用优惠口令</div>
+				</div>
+				<div class="main-js-right fr">
+					<div class="main-right-r fr">
+						<p>¥{{sum()}}</p>
+						<p>-¥30</p>
+						<p id="sumSale">-¥{{sSum()}}</p>
+						<p class="pink">¥{{rSum()}}</p>
+					</div>
+					<div class="main-right-l fr">
+						<span>共<i class="pink" id="sumNum">{{sNum()}}</i>件商品 商品金额</span>
+						<span>优惠券优惠</span>
+						<span>活动优惠</span>
+						<span>总金额（未含运费）</span>
+					</div>
+				</div>
+			</div>
+			<div class="main-js-down">
+				<p><a href="#">立即结算</a></p>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+
+
+  <div class="bot">
+    <ul>
+     <li><img src="images/hong-1.png"></li>
+     <li><a style="font-size: 15px" href="">防伪查询</a></li>
+     <li><a href="">输入查询码
+       </a></li>
+    </ul>
+    <ul>
+    <li><img src="images/hong-2.png"></li>
+    <li><a style="font-size: 15px" href="">售货服务
+</a></li>
+    <li>使用说明</li>
+    </ul>
+    <ul>
+    <li><img src="images/hong-3.png"></li>
+    <li><a style="font-size: 15px"href="">获取帮助 
+</a></li>
+    <li><a  href="">联系我们 | 就入我们
+</a></li>
+    </ul>
+    <ul>
+    <li><img src="images/hong-4.png"></li>
+    <li><a style="font-size: 15px" href="">团购服务
+</a></li>
+    <li><a href="">VIP客户
+</a></li>
+    </ul>
+</div>
+    <div class="xian">
+
+        <div><img src="images/xian.jpg"></div>
+         <div class="di">
+        <ul>
+            <li><a hert="">温馨提示：近日有不法分子假冒+4006100011冒充李宁官方客服人员进行电话诈骗，请您提高警惕，注意保护个人账户信息，切勿泄漏他人。如遇类似问题， 请勿回拨来电号码，直接拨打李宁客服电话400-610-0011询问</a></li>
+            <li><a hert="">沪ICP备14035278号-2  京公网安备11011202000593</a></li>
+            <li><a hert="">上海李宁体育用品电子商务有限公司©1990-2018</a></li>
+        </ul>
+    </div>
+
+   </div>
+        
+
+    <div class="we">
+        <ul>
+            <li><img src="images/bc (1).gif"></li>
+            <li><img src="images/bc (1).gif"></li>
+            <li><img src="images/bc (2).gif"></li>
+            <li><img src="images/bc (1).jpg"></li>
+
+            </ul>
+
+    </div>
+		
+<script src="js/vue.js"></script>
+<script src="js/car.js"></script>
+	
+</body>
+</html>
